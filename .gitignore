@@ -1,0 +1,5 @@
+node_modules/
+*.log
+*.prom
+grafana/data
+prometheus/data

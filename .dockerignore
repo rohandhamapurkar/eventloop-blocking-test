@@ -1,0 +1,6 @@
+grafana/
+prometheus/
+node_modules/
+.prettierrc
+eslint.config.mjs
+*.yaml
