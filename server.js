@@ -2,16 +2,16 @@ const http = require("http");
 
 // Configuration
 const PORT = 3000;
-const LAG_PROBABILITY = 0.6; // 30% chance of lag per request
+const LAG_PROBABILITY = 0.2; // 30% chance of lag per request
 const MIN_LAG_MS = 100; // Minimum lag duration in ms
-const MAX_LAG_MS = 3000; // Maximum lag duration in ms
+const MAX_LAG_MS = 1000; // Maximum lag duration in ms
 
 /**
  * Creates event loop lag by running a CPU-intensive operation
  * @param {number} duration - Duration in milliseconds to block the event loop
  */
 function createEventLoopLag(duration) {
-	console.log(`Creating event loop lag for ${duration}ms`);
+	// console.log(`Creating event loop lag for ${duration}ms`);
 	const start = Date.now();
 
 	// Run a blocking operation for the specified duration
@@ -21,7 +21,7 @@ function createEventLoopLag(duration) {
 		Math.random() * Math.random();
 	}
 
-	console.log(`Event loop lag completed after ${Date.now() - start}ms`);
+	// console.log(`Event loop lag completed after ${Date.now() - start}ms`);
 }
 
 /**
@@ -39,7 +39,7 @@ function shouldCreateLag() {
 
 // Create HTTP server
 const server = http.createServer((req, res) => {
-	console.log(`Received request: ${req.method} ${req.url}`);
+	// console.log(`Received request: ${req.method} ${req.url}`);
 
 	// Handle the /hello endpoint from your example
 	if (req.url === "/hello") {
@@ -69,6 +69,6 @@ const server = http.createServer((req, res) => {
 
 // Start the server
 server.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`);
-	console.log(`Configuration: ${LAG_PROBABILITY * 100}% chance of lag between ${MIN_LAG_MS}-${MAX_LAG_MS}ms`);
+	// console.log(`Server listening on port ${PORT}`);
+	// console.log(`Configuration: ${LAG_PROBABILITY * 100}% chance of lag between ${MIN_LAG_MS}-${MAX_LAG_MS}ms`);
 });

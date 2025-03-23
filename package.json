@@ -4,6 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "NODE_OPTIONS='-r ./monitoring.js' node server.js",
+    "win": "$env:NODE_OPTIONS='-r ./monitoring.js'; node server.js",
     "new": "NODE_OPTIONS='-r ./sampler.js' node server.js"
   },
   "author": "",

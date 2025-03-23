@@ -31,6 +31,11 @@ server.listen(monitoringPort, () => {
 	console.log(`Monitoring server listening on port ${monitoringPort}`);
 });
 
+setInterval(async function () {
+	const metrics = await register.metrics();
+	console.log(metrics.match(/nodejs_eventloop_lag_mean_seconds.*/gi)[2]);
+}, 400);
+
 console.log("Started monitoring logging.");
 
 // Keep the Node.js process running
