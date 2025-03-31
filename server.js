@@ -3,8 +3,8 @@ const http = require("http");
 // Configuration
 const PORT = 3000;
 const LAG_PROBABILITY = 0.2; // 30% chance of lag per request
-const MIN_LAG_MS = 100; // Minimum lag duration in ms
-const MAX_LAG_MS = 1000; // Maximum lag duration in ms
+const MIN_LAG_MS = 3000; // Minimum lag duration in ms
+const MAX_LAG_MS = 5000; // Maximum lag duration in ms
 
 /**
  * Creates event loop lag by running a CPU-intensive operation
